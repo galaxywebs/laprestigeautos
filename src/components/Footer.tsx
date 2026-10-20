@@ -81,13 +81,13 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
-          {/* Col 1 & 2: Brand Info with Transparent Logo (No white pill, no extra company text) */}
-          <div className="lg:col-span-2 space-y-5">
-            <Link to="/" className="inline-block" aria-label="LA Prestige Auto Group">
+          {/* Col 1 & 2: Brand Info with Enlarged Optimized Transparent Logo */}
+          <div className="lg:col-span-2 space-y-6">
+            <Link to="/" className="inline-block group focus:outline-none" aria-label="LA Prestige Auto Group">
               <img
-                src="/assets/aistudio/LA_Prestige_Auto_Logo_PNG_8e4ce65f.png"
+                src="/assets/aistudio/LA_Prestige_Auto_Logo_Optimized.png"
                 alt="LA Prestige Auto Group"
-                className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(212,175,55,0.25)]"
+                className="h-24 sm:h-30 md:h-34 w-auto object-contain filter drop-shadow-[0_4px_22px_rgba(212,175,55,0.35)] transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             

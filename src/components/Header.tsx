@@ -35,20 +35,20 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0B0B0E]/95 backdrop-blur-2xl border-b border-[#2A2A33]/90 transition-all">
+    <header className="sticky top-0 z-40 bg-[#0B0B0E]/95 backdrop-blur-2xl border-b border-[#2A2A33]/90 transition-all shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-22">
+        <div className="flex items-center justify-between h-22 sm:h-26">
           
-          {/* Transparent Logo without plate and with NO additional company text */}
+          {/* Optimized Transparent Brand Logo - Enlarged & Aligned */}
           <Link
             to="/"
-            className="flex items-center group py-1 shrink-0"
+            className="flex items-center group py-1 shrink-0 focus:outline-none"
             aria-label="LA Prestige Auto Group - Home"
           >
             <img
-              src="/assets/aistudio/LA_Prestige_Auto_Logo_PNG_8e4ce65f.png"
+              src="/assets/aistudio/LA_Prestige_Auto_Logo_Optimized.png"
               alt="LA Prestige Auto Group"
-              className="h-14 sm:h-17 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(212,175,55,0.25)]"
+              className="h-16 sm:h-20 md:h-22 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_3px_16px_rgba(212,175,55,0.32)]"
             />
           </Link>
 

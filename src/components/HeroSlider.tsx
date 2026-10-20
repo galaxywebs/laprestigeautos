@@ -43,7 +43,7 @@ export const HeroSlider: React.FC = () => {
       subtitle: "Skip dealership waiting lists and unadvertised markups. Our veteran brokers tap private nationwide wholesale networks to secure your exact build in 48 hours.",
       primaryCta: { label: "Request Vehicle Sourcing", href: "/car-brokerage" },
       secondaryCta: { label: "Sell / Trade Your Car", href: "/sell-your-car" },
-      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=2400&q=90", // Bespoke rare exotic vehicle
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", // Favorite black luxury sports car
       stat: "$3,450 Avg Savings",
     },
   ];
