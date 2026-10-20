@@ -1,0 +1,6 @@
+{
+  "name": "LA Prestige Auto Group",
+  "description": "Premier Los Angeles car dealership offering New Cars, Certified Used Cars, Lease Specials, and VIP Sales & Brokerage in Southern California.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
