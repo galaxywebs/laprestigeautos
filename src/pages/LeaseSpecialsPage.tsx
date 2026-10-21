@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Calendar, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
+import { BadgePercent, Calendar, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
 import { getOffers, LeaseOffer } from '../data/offers.ts';
 import { LeadModal } from '../components/LeadModal.tsx';
 import { businessData } from '../data/business.ts';
@@ -15,7 +15,7 @@ export const LeaseSpecialsPage: React.FC = () => {
         {/* Page Hero Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A1A21] border border-[#D4AF37]/40 text-[#F0D274] text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+            <BadgePercent className="w-4 h-4 text-[#D4AF37]" />
             <span>Pre-Negotiated California Fleet Pricing</span>
           </div>
 

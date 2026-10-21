@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Crown } from 'lucide-react';
 import { getVehicles } from '../data/vehicles.ts';
 
 interface BrandItem {
@@ -204,7 +204,7 @@ export const BrandLogosGrid: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
             <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-              <Sparkles className="w-4 h-4" />
+              <Crown className="w-4 h-4 text-[#D4AF37]" />
               <span>Browse By Marque</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">

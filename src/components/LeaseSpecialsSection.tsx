@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Calendar, ArrowRight, ShieldCheck, CheckCircle } from 'lucide-react';
+import { BadgePercent, Calendar, ArrowRight, ShieldCheck, CheckCircle } from 'lucide-react';
 import { getOffers, LeaseOffer } from '../data/offers.ts';
 import { LeadModal } from './LeadModal.tsx';
 
@@ -22,7 +22,7 @@ export const LeaseSpecialsSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-              <Sparkles className="w-4 h-4" />
+              <BadgePercent className="w-4 h-4 text-[#D4AF37]" />
               <span>Limited-Time Fleet Volume Allocations</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">

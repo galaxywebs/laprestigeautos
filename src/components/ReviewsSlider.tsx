@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, CheckCircle2, ArrowRight, Quote, Car, Pause, Play, ShieldCheck, Sparkles } from 'lucide-react';
+import { Star, CheckCircle2, ArrowRight, Quote, Car, Pause, Play, ShieldCheck } from 'lucide-react';
 import { getReviews } from '../data/reviews.ts';
 import { businessData } from '../data/business.ts';
 
@@ -157,7 +157,7 @@ export const ReviewsSlider: React.FC = () => {
       {/* Helper cue under carousel */}
       <div className="text-center mt-6">
         <p className="text-[11px] text-zinc-400 inline-flex items-center gap-1.5 bg-[#131318] px-3.5 py-1.5 rounded-full border border-[#2A2A33]">
-          <Sparkles className="w-3 h-3 text-[#D4AF37]" />
+          <Quote className="w-3 h-3 text-[#D4AF37]" />
           <span>Hover over any review card to pause animation and read in detail</span>
         </p>
       </div>

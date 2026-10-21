@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Crown, Zap, Compass, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, Crown, Zap, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const HeroSlider: React.FC = () => {
   const slides = [
@@ -22,9 +22,9 @@ export const HeroSlider: React.FC = () => {
       id: 2,
       badge: "Exclusive 2026 Fleet Leases • $0 Down Allocations",
       badgeIcon: Zap,
-      badgeClass: "border-amber-500/70 bg-gradient-to-r from-red-950/80 via-amber-950/70 to-black/85 text-[#FBBF24] shadow-[0_0_20px_rgba(245,158,11,0.4)]",
-      badgeTextClass: "bg-gradient-to-r from-[#FDE68A] via-[#FBBF24] to-[#F59E0B] bg-clip-text text-transparent font-extrabold",
-      iconClass: "text-[#F59E0B] filter drop-shadow-[0_0_8px_rgba(245,158,11,0.9)]",
+      badgeClass: "border-[#D4AF37]/70 bg-gradient-to-r from-black/80 via-[#1A1A21]/90 to-black/80 text-[#F0D274] shadow-[0_0_20px_rgba(212,175,55,0.35)]",
+      badgeTextClass: "bg-gradient-to-r from-[#F0D274] via-[#FFF1AC] to-[#D4AF37] bg-clip-text text-transparent font-extrabold",
+      iconClass: "text-[#D4AF37] filter drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]",
       title: "Luxury Leases From Low Monthly Payments.",
       subtitle: "Tier-1 executive leases on 2026 BMW, Mercedes-Benz, Lexus & Toyota Hybrid. Zero dealer markups, transparent lease math, and white-glove home delivery.",
       primaryCta: { label: "View Lease Specials", href: "/lease-specials" },
@@ -36,9 +36,9 @@ export const HeroSlider: React.FC = () => {
       id: 3,
       badge: "Nationwide VIP Car Brokerage • 48-Hour Sourcing",
       badgeIcon: Compass,
-      badgeClass: "border-sky-400/70 bg-gradient-to-r from-sky-950/80 via-slate-900/80 to-black/85 text-[#38BDF8] shadow-[0_0_20px_rgba(56,189,248,0.4)]",
-      badgeTextClass: "bg-gradient-to-r from-[#BAE6FD] via-[#38BDF8] to-[#0284C7] bg-clip-text text-transparent font-extrabold",
-      iconClass: "text-[#38BDF8] filter drop-shadow-[0_0_8px_rgba(56,189,248,0.9)]",
+      badgeClass: "border-[#D4AF37]/70 bg-gradient-to-r from-black/80 via-[#1A1A21]/90 to-black/80 text-[#F0D274] shadow-[0_0_20px_rgba(212,175,55,0.35)]",
+      badgeTextClass: "bg-gradient-to-r from-[#F0D274] via-[#FFF1AC] to-[#D4AF37] bg-clip-text text-transparent font-extrabold",
+      iconClass: "text-[#D4AF37] filter drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]",
       title: "Can't Find It? We'll Source It For You.",
       subtitle: "Skip dealership waiting lists and unadvertised markups. Our veteran brokers tap private nationwide wholesale networks to secure your exact build in 48 hours.",
       primaryCta: { label: "Request Vehicle Sourcing", href: "/car-brokerage" },
@@ -163,6 +163,30 @@ export const HeroSlider: React.FC = () => {
           />
         ))}
       </div>
+
+      {/* Luxury Mouse Scroll Effect on Bottom Center-Right */}
+      <button
+        type="button"
+        onClick={() => {
+          const target = document.getElementById('search-filter-section');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 650, behavior: 'smooth' });
+          }
+        }}
+        className="absolute bottom-5 sm:bottom-7 right-5 sm:right-10 z-20 flex flex-col items-center gap-1.5 cursor-pointer group select-none transition-transform hover:scale-105 focus:outline-none"
+        aria-label="Scroll to browse inventory"
+        title="Scroll down to explore inventory"
+      >
+        <div className="w-5 h-8 sm:w-6 sm:h-9 border-2 border-[#D4AF37]/70 rounded-full flex justify-center p-1 bg-black/50 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:border-[#F0D274] transition-all">
+          <div className="w-1 h-2 bg-[#D4AF37] rounded-full animate-bounce mt-0.5" />
+        </div>
+        <span className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-300 group-hover:text-[#F0D274] flex items-center gap-0.5 drop-shadow">
+          <span>Scroll</span>
+          <ChevronDown className="w-3 h-3 text-[#D4AF37] animate-pulse" />
+        </span>
+      </button>
     </div>
   );
 };

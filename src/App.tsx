@@ -6,6 +6,7 @@ import { Header } from './components/Header.tsx';
 import { Footer } from './components/Footer.tsx';
 import { MobileBottomBar } from './components/MobileBottomBar.tsx';
 import { FloatingContact } from './components/FloatingContact.tsx';
+import { MoveToTopButton } from './components/MoveToTopButton.tsx';
 import { SavedCarsDrawer } from './components/SavedCarsDrawer.tsx';
 
 // Pages
@@ -71,6 +72,9 @@ export default function App() {
 
           {/* Mobile Bottom Quick Action Bar */}
           <MobileBottomBar />
+
+          {/* Floating Move-To-Top Button on long pages */}
+          <MoveToTopButton />
 
           {/* Floating WhatsApp / Concierge Chat */}
           <FloatingContact />

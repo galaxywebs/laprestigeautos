@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Search, SlidersHorizontal, TrendingUp } from 'lucide-react';
 import { getVehicles } from '../data/vehicles.ts';
 
 export const SearchFilterBar: React.FC = () => {
@@ -44,7 +44,7 @@ export const SearchFilterBar: React.FC = () => {
   };
 
   return (
-    <div className="relative z-30 max-w-6xl mx-auto px-4 -mt-10 sm:-mt-14 mb-12">
+    <div id="search-filter-section" className="relative z-30 max-w-6xl mx-auto px-4 -mt-10 sm:-mt-14 mb-12 scroll-mt-28">
       <div className="bg-[#131318]/95 backdrop-blur-xl border border-[#2A2A33] rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.7)] p-4 sm:p-6">
         
         {/* Condition Tabs: All Car / New Car / Used Car */}
@@ -148,7 +148,7 @@ export const SearchFilterBar: React.FC = () => {
         {/* Trending Quick Links (as in AutoDeal inspiration) */}
         <div className="mt-4 pt-3 border-t border-[#2A2A33]/50 flex flex-wrap items-center gap-2 text-xs">
           <div className="flex items-center gap-1.5 text-[#F0D274] font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
+            <TrendingUp className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Trending:</span>
           </div>
           {['SUV', 'Sedan', 'Coupe', 'Electric', 'Truck'].map((tag) => (

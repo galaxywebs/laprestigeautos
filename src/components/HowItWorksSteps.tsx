@@ -36,9 +36,10 @@ export const HowItWorksSteps: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-            Effortless VIP Process
-          </span>
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <CheckCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <span>Effortless VIP Process</span>
+          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
             How LA Prestige Works
           </h2>

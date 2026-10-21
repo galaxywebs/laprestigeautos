@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, BookOpen } from 'lucide-react';
+import { ArrowRight, Car, BookOpen } from 'lucide-react';
 import { HeroSlider } from '../components/HeroSlider.tsx';
 import { SearchFilterBar } from '../components/SearchFilterBar.tsx';
 import { TrustStrip } from '../components/TrustStrip.tsx';
@@ -46,7 +46,7 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
               <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                <Sparkles className="w-4 h-4" />
+                <Car className="w-4 h-4 text-[#D4AF37]" />
                 <span>Hand-Selected Collection</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
