@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ChevronDown, Crown, Zap, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Crown, Zap, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const HeroSlider: React.FC = () => {
   const slides = [
@@ -15,7 +15,7 @@ export const HeroSlider: React.FC = () => {
       subtitle: "Experience white-glove automotive acquisition. Hand-selected luxury vehicles, certified pre-owned sports cars, and private brokerage in Los Angeles.",
       primaryCta: { label: "Explore Inventory", href: "/new-cars" },
       secondaryCta: { label: "Book Test Drive", href: "/contact" },
-      image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=2400&q=90", // High-fidelity luxury sports coupe
+      image: "/assets/aistudio/Hero_Section_1_Example_720d07c8.jpg", // Dealership Showroom with pristine luxury cars
       stat: "5,200+ Delivered",
     },
     {
@@ -29,7 +29,7 @@ export const HeroSlider: React.FC = () => {
       subtitle: "Tier-1 executive leases on 2026 BMW, Mercedes-Benz, Lexus & Toyota Hybrid. Zero dealer markups, transparent lease math, and white-glove home delivery.",
       primaryCta: { label: "View Lease Specials", href: "/lease-specials" },
       secondaryCta: { label: "Calculate Payment", href: "/financing" },
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=2400&q=90", // High-fidelity 2026 BMW M executive coupe
+      image: "/src/assets/images/team_assisting_customer_1792579393967.jpg", // LA Prestige Auto team in yellow t-shirts assisting customer in showroom
       stat: "Starting $329/mo",
     },
     {
@@ -163,30 +163,6 @@ export const HeroSlider: React.FC = () => {
           />
         ))}
       </div>
-
-      {/* Luxury Mouse Scroll Effect on Bottom Center-Right */}
-      <button
-        type="button"
-        onClick={() => {
-          const target = document.getElementById('search-filter-section');
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            window.scrollTo({ top: 650, behavior: 'smooth' });
-          }
-        }}
-        className="absolute bottom-5 sm:bottom-7 right-5 sm:right-10 z-20 flex flex-col items-center gap-1.5 cursor-pointer group select-none transition-transform hover:scale-105 focus:outline-none"
-        aria-label="Scroll to browse inventory"
-        title="Scroll down to explore inventory"
-      >
-        <div className="w-5 h-8 sm:w-6 sm:h-9 border-2 border-[#D4AF37]/70 rounded-full flex justify-center p-1 bg-black/50 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:border-[#F0D274] transition-all">
-          <div className="w-1 h-2 bg-[#D4AF37] rounded-full animate-bounce mt-0.5" />
-        </div>
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-300 group-hover:text-[#F0D274] flex items-center gap-0.5 drop-shadow">
-          <span>Scroll</span>
-          <ChevronDown className="w-3 h-3 text-[#D4AF37] animate-pulse" />
-        </span>
-      </button>
     </div>
   );
 };

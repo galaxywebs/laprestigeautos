@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Award, ShieldCheck, Heart, Users, MapPin, CheckCircle2, ArrowRight, Phone } from 'lucide-react';
 import { businessData } from '../data/business.ts';
 import { getTeam } from '../data/team.ts';
+import { Counter } from '../components/TrustStrip.tsx';
+import { RoundedStarIcon } from '../components/RoundedStarIcon.tsx';
 
 export const AboutPage: React.FC = () => {
   const team = getTeam();
+  const [inView, setInView] = useState(false);
+  const statsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    // Fallback timer so it always loads if already in view
+    const timer = setTimeout(() => setInView(true), 400);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
 
   const values = [
     {
@@ -57,25 +85,37 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Stats Strip */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-[#131318] border border-[#2A2A33]">
-          <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-black text-white">{businessData.stats.yearsInBusiness}</div>
+        {/* Stats Strip with Dynamic Animated Counter and Rounded Star */}
+        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-[#131318] border border-[#2A2A33] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+          <div className="text-center group">
+            <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#F0D274] transition-colors">
+              <Counter target={15} suffix="+" start={inView} />
+            </div>
             <div className="text-xs text-[#D4AF37] font-semibold mt-1">Years in Los Angeles</div>
             <div className="text-[11px] text-zinc-400">Serving SoCal Drivers</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-black text-white">{businessData.stats.vehiclesDelivered}</div>
+
+          <div className="text-center group">
+            <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#F0D274] transition-colors">
+              <Counter target={3500} suffix="+" start={inView} />
+            </div>
             <div className="text-xs text-[#D4AF37] font-semibold mt-1">Vehicles Delivered</div>
             <div className="text-[11px] text-zinc-400">New, Used & Bespoke</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-black text-white">{businessData.stats.googleRating} ★</div>
+
+          <div className="text-center group">
+            <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#F0D274] transition-colors flex items-center justify-center">
+              <Counter target={4.9} decimals={1} start={inView} />
+              <RoundedStarIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#D4AF37] fill-[#D4AF37] inline-block ml-1.5 -mt-0.5 filter drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]" />
+            </div>
             <div className="text-xs text-[#D4AF37] font-semibold mt-1">Client Satisfaction</div>
             <div className="text-[11px] text-zinc-400">540+ Verified Reviews</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-black text-white">{businessData.stats.averageBrokerageSavings}</div>
+
+          <div className="text-center group">
+            <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#F0D274] transition-colors">
+              <Counter target={3450} prefix="$" suffix="+" start={inView} />
+            </div>
             <div className="text-xs text-[#D4AF37] font-semibold mt-1">Average Client Savings</div>
             <div className="text-[11px] text-zinc-400">vs. Retail Dealer Quotes</div>
           </div>
