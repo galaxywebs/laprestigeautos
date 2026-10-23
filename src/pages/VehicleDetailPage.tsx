@@ -24,6 +24,7 @@ import { businessData } from '../data/business.ts';
 import { LeadModal } from '../components/LeadModal.tsx';
 import { VehicleCard } from '../components/VehicleCard.tsx';
 import { LoanCalculator } from '../components/LoanCalculator.tsx';
+import { SEOHead } from '../components/SEOHead.tsx';
 
 export const VehicleDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -69,9 +70,13 @@ export const VehicleDetailPage: React.FC = () => {
   return (
     <div className="py-8 bg-[#0B0B0E] min-h-screen">
       
-      {/* Vehicle JSON-LD Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+      {/* Dynamic SEO & Vehicle Schema */}
+      <SEOHead
+        title={`${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim} For Sale | LA Prestige Auto Group`}
+        description={`Buy or lease this ${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim} in Los Angeles. ${vehicle.horsepower} HP, ${vehicle.drivetrain}, ${vehicle.exteriorColor} exterior. Price: $${vehicle.price.toLocaleString()}.`}
+        ogImage={vehicle.images[0]}
+        ogType="product"
+        schema={{
           "@context": "https://schema.org/",
           "@type": "Car",
           "name": `${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim}`,
@@ -95,11 +100,20 @@ export const VehicleDetailPage: React.FC = () => {
             "availability": "https://schema.org/InStock",
             "seller": {
               "@type": "AutoDealer",
-              "name": "LA Prestige Auto Group"
+              "name": "LA Prestige Auto Group",
+              "telephone": "+1-818-555-0199",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "11825 Ventura Blvd",
+                "addressLocality": "Studio City",
+                "addressRegion": "CA",
+                "postalCode": "91604",
+                "addressCountry": "US"
+              }
             }
           }
-        })}
-      </script>
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

@@ -15,6 +15,7 @@ import { WhyChooseUs } from '../components/WhyChooseUs.tsx';
 import { ReviewsSlider } from '../components/ReviewsSlider.tsx';
 import { FAQAccordion } from '../components/FAQAccordion.tsx';
 import { CtaBand } from '../components/CtaBand.tsx';
+import { SEOHead } from '../components/SEOHead.tsx';
 import { getVehicles } from '../data/vehicles.ts';
 import { getPosts } from '../data/blog.ts';
 
@@ -30,6 +31,12 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="LA Prestige Auto Group | New, Used & Luxury Car Brokerage in Los Angeles"
+        description="Premier Los Angeles car dealership offering New Cars, Certified Pre-Owned Vehicles, Lease Specials, and VIP Sales & Brokerage in Southern California."
+        canonicalUrl="https://laprestigeautogroup.com"
+      />
+
       {/* 1. Hero Slider */}
       <HeroSlider />
 

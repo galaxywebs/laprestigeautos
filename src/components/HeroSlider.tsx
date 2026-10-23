@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Crown, Zap, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
+import slide2Image from '../assets/images/team_assisting_customer_1792579393967.jpg';
 
 export const HeroSlider: React.FC = () => {
   const slides = [
@@ -29,7 +30,7 @@ export const HeroSlider: React.FC = () => {
       subtitle: "Tier-1 executive leases on 2026 BMW, Mercedes-Benz, Lexus & Toyota Hybrid. Zero dealer markups, transparent lease math, and white-glove home delivery.",
       primaryCta: { label: "View Lease Specials", href: "/lease-specials" },
       secondaryCta: { label: "Calculate Payment", href: "/financing" },
-      image: "/src/assets/images/team_assisting_customer_1792579393967.jpg", // LA Prestige Auto team in yellow t-shirts assisting customer in showroom
+      image: slide2Image, // LA Prestige Auto team in yellow t-shirts assisting customer in showroom
       stat: "Starting $329/mo",
     },
     {
@@ -55,7 +56,7 @@ export const HeroSlider: React.FC = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, currentSlide]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
@@ -77,6 +78,12 @@ export const HeroSlider: React.FC = () => {
             <img
               src={slide.image}
               alt={slide.title}
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (slide.id === 2 && !target.src.includes('team_assisting_customer')) {
+                  target.src = '/assets/aistudio/team_assisting_customer_1792579393967.jpg';
+                }
+              }}
               className={`absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-10000 ${
                 isActive ? 'scale-105' : 'scale-100'
               }`}
@@ -135,7 +142,7 @@ export const HeroSlider: React.FC = () => {
       <button
         onClick={prevSlide}
         aria-label="Previous slide"
-        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-[#D4AF37]/30 hover:border-[#D4AF37] backdrop-blur-md transition-all hover:scale-105 items-center justify-center shadow-xl"
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-[#D4AF37]/30 hover:border-[#D4AF37] backdrop-blur-md transition-all hover:scale-105 items-center justify-center shadow-xl cursor-pointer"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
@@ -143,19 +150,19 @@ export const HeroSlider: React.FC = () => {
       <button
         onClick={nextSlide}
         aria-label="Next slide"
-        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-[#D4AF37]/30 hover:border-[#D4AF37] backdrop-blur-md transition-all hover:scale-105 items-center justify-center shadow-xl"
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-[#D4AF37]/30 hover:border-[#D4AF37] backdrop-blur-md transition-all hover:scale-105 items-center justify-center shadow-xl cursor-pointer"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Slide Indicator Dots */}
-      <div className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-2.5">
+      <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-2.5">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentSlide(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 ${
+            className={`transition-all duration-300 cursor-pointer ${
               i === currentSlide
                 ? 'w-9 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_10px_rgba(212,175,55,0.7)]'
                 : 'w-2.5 h-2 bg-white/30 hover:bg-white/60 rounded-full'
